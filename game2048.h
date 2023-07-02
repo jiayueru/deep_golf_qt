@@ -49,7 +49,9 @@ private:
     QPropertyAnimation* win_animation;
     private slots:
         void on_start_button_clicked();
-signals:
+        void on_next_button_clicked();
+
+    signals:
     void gameFinished();
 };
 

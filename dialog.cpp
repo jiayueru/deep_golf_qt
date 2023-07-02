@@ -10,7 +10,7 @@ DialogWidget::DialogWidget(QWidget *parent, int id_, int case_)
     currentDialogIndex = 0;
     label = new QLabel(this);
     // 设置鼠标跟踪
-    setMouseTracking(true);
+    //setMouseTracking(true);
 }
 
 void DialogWidget::paintEvent(QPaintEvent *event)
@@ -28,7 +28,7 @@ void DialogWidget::paintEvent(QPaintEvent *event)
     QRect textRect(textX, textY, textWidth, textHeight);
     painter.drawText(textRect, Qt::AlignCenter, dialogTexts[currentDialogIndex]);
 }
-
+/*
 void DialogWidget::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
@@ -50,7 +50,20 @@ void DialogWidget::mousePressEvent(QMouseEvent *event)
     {
         event->ignore();
     }
+}*/
+void DialogWidget::go_next(){
+    if (currentDialogIndex < dialogTexts.size()-1) {
+        // 切换下一句对话
+        currentDialogIndex++;
+        update(); // 更新绘制
+    }
+    else {
+        // 对话结束，清空对话内容
+        dialogTexts.clear();
+        emit dialogFinished();
+    }
 }
+
 
 
 
@@ -69,10 +82,13 @@ void DialogWidget::put_text(){
             dialogTexts << "没有什么能阻挡你来到程设的课堂。\n你顾不得再思索纸条上的内容，稍作洗漱便走出了寝室。";
         }
     }
-    /*left behid: 仅仅是为了调试*/
+    /*场景2:楼梯*/
     else if(id==2){
         if(caseid==1){
             dialogTexts << "楼道的灯光暗得出奇，你简直要怀疑窗外又刮起了沙尘暴。";
+            dialogTexts<<"突然，一只刺猬从脚边窜出——刺猬？你想起学长口中“刺猬姐”的故事。";
+            dialogTexts<<"那是十几年前的学姐，违反校规在宿舍养了刺猬而又熬了汤的。\n刺猬汤的味道从六楼飘到一楼，成了一桩不大不小的校园奇闻。";
+            dialogTexts<<"没人考据过故事的真实性，也没听说有谁真在宿舍养起了刺猬。\n可今天——那张古怪的纸片是不是也提到刺猬来着？";
         }
         else if(caseid==2){
         }
@@ -105,7 +121,9 @@ void DialogWidget::put_text(){
     /*餐车 behind*/
     else if(id==5){
         if(caseid==1){
-            dialogTexts << "NONONO";
+            dialogTexts << "来到29楼附近，你忽然想起新生守则上的第3条，“不吃早饭进入课堂是不被允许的”";
+            dialogTexts<<"你本对这条规定嗤之以鼻，可前面的奇遇却让你不得不收起轻视的念头.";
+            dialogTexts<<"还是在这里买一份早饭吧。你会选择:\n A.有身着工作服人员的餐车B.无人值班的全家";
         }
     }
     /*behind*/
