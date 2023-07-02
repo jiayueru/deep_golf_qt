@@ -16,7 +16,6 @@
         <file>images/bg1.png</file>
         <file>images/book01.png</file>
         <file>images/list_1.png</file>
-        <file>images/lsit_0.png</file>
         <file>images/paper1.png</file>
         <file>images/run0.png</file>
         <file>images/run1.png</file>
@@ -34,5 +33,6 @@
         <file>BG_new/BG10.png</file>
         <file>images/bg11.png</file>
         <file>images/black1.png</file>
+        <file>images/list_0.png</file>
     </qresource>
 </RCC>

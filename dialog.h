@@ -15,13 +15,14 @@ public:
     QLabel* label;
     explicit DialogWidget(QWidget *parent = nullptr, int id_= 1, int caseid_=1);
     void put_text();
+    void go_next();
 
 
 signals:
     void dialogFinished();
 protected:
     void paintEvent(QPaintEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
+    //void mousePressEvent(QMouseEvent *event) override;
 
 
 private:

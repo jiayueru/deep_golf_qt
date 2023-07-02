@@ -21,15 +21,16 @@ MainWindow::~MainWindow()
 void MainWindow::setupScenes()
 {
     /*可以根据scene实例化出不同的对象出来, 然后把所有的场景加入到堆叠窗口中去*/
-    Scene1 *scene1 = new Scene1(this, 1, 1);
+    Scene1 *scene1 = new Scene1(this, 1, 1,60,80,0);
     Scene1 *scene1_2 = new Scene1(this, 1, 2);
     Scene1* scene2 = new Scene1(this, 2, 1);
     Scene1* scene3 = new Scene1(this, 3, 1);
-    game2048*scene3_game = new game2048(this);
-    Scene1* scene4 = new Scene1(this, 4, 1);
+    game2048*scene3_game = new game2048(this,1);
+    //game2048*scene4_game=new game2048(this,2);
+    Scene1* scene4 = new Scene1(this, 4, 1,60,80,1);
     MyWindow* scene4_run =new MyWindow(this);
     Scene1* scene5 = new Scene1(this, 5, 1);
-    Scene1* scene6 = new Scene1(this, 6, 1);
+    Scene1* scene6 = new Scene1(this, 6, 1,60,80,2);
     Scene1* scene7 = new Scene1(this, 7, 1);
     Scene1* scene8 = new Scene1(this, 8, 1);
     Scene1* scene9 = new Scene1(this, 9, 1);
