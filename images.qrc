@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/front">
+        <file>material/1_1.png</file>
+        <file>material/1_2.png</file>
+        <file>material/1_3.png</file>
+        <file>material/1_4.png</file>
+        <file>material/1_5.png</file>
+        <file>material/1_6.png</file>
+        <file>material/2_1.png</file>
+        <file>material/2_2.png</file>
+        <file>material/2_3.png</file>
+        <file>material/2_4.png</file>
+        <file>material/2_5.png</file>
+        <file>material/2_6.png</file>
+        <file>material/95de31964a9a024751c33004e75e1478.jpg</file>
+        <file>images/bg1.png</file>
+        <file>images/book01.png</file>
+        <file>images/list_1.png</file>
+        <file>images/lsit_0.png</file>
+        <file>images/paper1.png</file>
+        <file>images/run0.png</file>
+        <file>images/run1.png</file>
+        <file>images/speak0.png</file>
+        <file>images/speak1.png</file>
+        <file>images/talk01.png</file>
+        <file>BG_new/BG1.png</file>
+        <file>BG_new/BG2.png</file>
+        <file>BG_new/BG3.png</file>
+        <file>BG_new/BG4.png</file>
+        <file>BG_new/BG5.png</file>
+        <file>BG_new/BG6.png</file>
+        <file>BG_new/BG7.png</file>
+        <file>BG_new/BG8.png</file>
+        <file>BG_new/BG10.png</file>
+        <file>images/bg11.png</file>
+        <file>images/black1.png</file>
+    </qresource>
+</RCC>
