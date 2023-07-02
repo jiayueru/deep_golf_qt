@@ -131,7 +131,7 @@ void MyWindow::treerun(int y, int count){
                 tree->setGeometry(y-l[count]*5+800, 390, a->width(), a->height());
                 tree->show();
                 QRect Tree(y-l[count]*5+800+a->width(), 390+40, a->width(), a->height());
-//                this->judge(Tree, Dinosaur);
+                this->judge(Tree, Dinosaur);
                 l[count]++;
             }
 //            else{
@@ -176,7 +176,7 @@ void MyWindow::ddown(QLabel* jump){
     animation1->setEndValue(QRect(200, 350, jump->width(), jump->height()));
     animation1->start();
     isanimation=1;
-    Dinosaur.setRect(200, 350, jump->width(), jump->height());
+//    Dinosaur.setRect(200, 350, jump->width(), jump->height());
 }
 
 /*向上跳跃的判定*/
@@ -214,7 +214,7 @@ void MyWindow::keyPressEvent(QKeyEvent * event){
 /*分数计时器*/
 void MyWindow::score(){
     scoretimer=new QTimer();
-    scoretimer->start(1000);
+    scoretimer->start(600);
     QLabel* score=new QLabel();
     score->setParent(this);
     score->raise();
@@ -226,8 +226,8 @@ void MyWindow::score(){
     connect(scoretimer, &QTimer::timeout,[=]{
         QString str = QString("YOUR SCORE:%1").arg(MyWindow::num);
         score->setText(str);
-        MyWindow::num += 2;
-        if(num== 100){
+        MyWindow::num += 1;
+        if(num>30){
             QString str = QString("WIN!!!");
             score->setText(str);
             emit gameFinished();
