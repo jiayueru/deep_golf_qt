@@ -46,10 +46,10 @@ void DialogWidget::mousePressEvent(QMouseEvent *event)
             }
         event->accept();
     }
-    else
-    {
-        event->ignore();
-    }
+    // else
+    // {
+    //     event->ignore();
+    // }
 }
 
 
@@ -105,13 +105,25 @@ void DialogWidget::put_text(){
     /*餐车 behind*/
     else if(id==5){
         if(caseid==1){
-            dialogTexts << "NONONO";
+            dialogTexts << "来到29楼附近，你忽然想起新生守则上的第3条：\n“不吃早饭进入课堂是不被允许的”";
+            dialogTexts << "你本对这条规定嗤之以鼻，可前面的奇遇却让你不得不收起轻视的念头。\n还是在这里买一份早饭吧。";
+            dialogTexts << "你会选择：\n";
+        }
+        else if(caseid==2){
+            dialogTexts << "全家是24小时营业的。你很庆幸自己记住了这点。";
+            dialogTexts << "无人值班并没有什么妨碍，自助售	货机已经能满足你的需求了。";
+            dialogTexts << "一个饭团下肚，你的精神似乎振作了一点。";
+            dialogTexts << "走出全家，你发现一个身穿制服、骑着电瓶车的身影一闪而过，你选择：";
         }
     }
     /*behind*/
     else if(id==6){
         if(caseid==1){
-            dialogTexts << "NONONONO";
+            dialogTexts << "走到百周年讲堂的门前，一个人影凑上前来搭话，\n口中念叨着什么“国家精品课”“两朵乌云”“符号落地与尝试获取”一类的话语。";
+            dialogTexts << "余光中你只瞥见一个硕大无朋却发量稀疏的脑壳。你选择：";
+        }
+        else if(caseid==2){
+            dialogTexts << "他满意地离开了。你抹了抹额头的冷汗，继续奔赴程设课堂。";
         }
     }
     /*二教门口*/

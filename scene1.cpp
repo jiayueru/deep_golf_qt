@@ -30,6 +30,14 @@ void Scene1::startscene(){
     showlion();
     dialogWidget = new DialogWidget(this, id, caseid);
     dialogWidget->show();
+    if(id==3 && caseid==2){
+        QPushButton *tryCardButton = new QPushButton("继续尝试校园卡", this);
+        // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
+        QPushButton *knockDoorButton = new QPushButton("敲击大门", this);
+        // connect(knockDoorButton, &QPushButton::clicked, this, &YourClass::knockDoorButtonClicked);
+        tryCardButton->move(100, 100);
+        knockDoorButton->move(200, 200);
+    }
 }
 
 int i1 =0;

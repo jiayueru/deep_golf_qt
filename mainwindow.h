@@ -8,6 +8,8 @@
 #include "mywindow.h"
 #include "dialog.h"
 #include "game2048.h"
+#include "running.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -20,19 +22,62 @@ public:
     int current_idx = 1; //表示现在的场景是第几个，用来New出来scene1对象
     explicit MainWindow(QWidget *parent = nullptr);
     void startscene();
+    void setupScenes();
     void show_paper(int a, int b);
     void help();
     ~MainWindow();
 
-private slots:
+    int currentScene;
+    Scene1 *scene1 = new Scene1(this, 1, 1);
+    Scene1 *scene1_2 = new Scene1(this, 1, 2);
+    Scene1 *scene2 = new Scene1(this, 2, 1);
+    Scene1* scene3 = new Scene1(this, 3, 1);
+    Scene1* scene3_2 = new Scene1(this, 3, 2);
+    // game2048* scene3_game = new game2048(this);
+    Scene1* scene4 = new Scene1(this, 4, 1);
+    running * scene4_game = new running(this);
+    Scene1* scene5 = new Scene1(this, 5, 1);
+    Scene1* scene6 = new Scene1(this, 6, 1);
+    Scene1* scene7 = new Scene1(this, 7, 1);
+    Scene1* scene8 = new Scene1(this, 8, 1);
+    Scene1* scene9 = new Scene1(this, 9, 1);
+
+public slots:
+    void switchToScene(int sceneIndex)
+    {
+        showScene(sceneIndex);
+    } 
+    /*创建一个新的2048游戏*/
+    void new_2048(){
+        game2048* new_game = new game2048(this);
+        new_game->setVisible(true);   
+    }
     void go_next();
     void goRunning();
     void go_back();/*回到当前窗口的下一个case*/
 
-private:
+public:
     QStackedWidget *stackedWidget;
-
-    void setupScenes();
+    void showScene(int sceneIndex)
+    {
+        // 设置场景控件的可见性
+        scene1->setVisible(sceneIndex == 0);
+        scene1_2->setVisible(sceneIndex == 1);
+        scene2->setVisible(sceneIndex == 2);
+        scene3->setVisible(sceneIndex == 3);
+        scene3_2->setVisible(sceneIndex == 4);
+        scene4_game->setVisible(sceneIndex == 12);
+        scene4->setVisible(sceneIndex == 5);
+        scene4_game->setVisible(sceneIndex == 6);
+        scene5->setVisible(sceneIndex == 7);
+        scene6->setVisible(sceneIndex == 8);
+        scene7->setVisible(sceneIndex == 9);
+        scene8->setVisible(sceneIndex == 10);
+        scene9->setVisible(sceneIndex == 11);
+        if(sceneIndex == 6){
+           scene4_game->start_game();
+        }
+    }
 private:
     Ui::MainWindow *ui;
 };

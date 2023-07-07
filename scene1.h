@@ -25,6 +25,7 @@ public:
     void set_button();
 
 signals:
+    void scene1_finished();
     void goToScene2();
 
 private:

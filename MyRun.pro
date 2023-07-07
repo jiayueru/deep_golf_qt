@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mywindow.cpp \
+    running.cpp \
     scene1.cpp \
     scene2.cpp
 
@@ -22,13 +23,15 @@ HEADERS += \
     game2048.h \
     mainwindow.h \
     mywindow.h \
+    running.h \
     scene1.h \
     scene2.h
 
 FORMS += \
     game2048.ui \
     mainwindow.ui \
-    mywindow.ui
+    mywindow.ui \
+    running.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
