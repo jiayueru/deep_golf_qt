@@ -8,7 +8,7 @@ game2048::game2048(QWidget *parent,int type)
     : QWidget(parent)
     , ui(new Ui::game2048)
 {
-    this->grabKeyboard();
+
     ui->setupUi(this);
     resize(800,600);
     call_num=type;//1,2
@@ -278,6 +278,7 @@ void game2048::init(){
 
 void game2048::on_start_button_clicked()
 {
+    this->grabKeyboard();
     init();
 }
 void game2048::keyPressEvent(QKeyEvent *e)

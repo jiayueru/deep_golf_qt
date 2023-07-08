@@ -40,11 +40,13 @@ public:
 
     Scene1* scene5 = new Scene1(this, 5, 1);
     Scene1* scene5_2 = new Scene1(this, 5, 2);
+
+    game2048* Scene5_game = new game2048(this,2);
     Scene1* scene5_3 = new Scene1(this, 5, 3);
     Scene1* scene5_4 = new Scene1(this, 5, 4);
-    Scene1* scene5_5 = new Scene1(this, 5, 5);
+    Scene1* scene5_5 = new Scene1(this, 5, 5,60,80,2);
 
-    Scene1* scene6 = new Scene1(this, 6, 1,60,80,2);
+    Scene1* scene6 = new Scene1(this, 6, 1);
     Scene1* scene6_2 = new Scene1(this, 6, 2);
     Scene1* scene6_3 = new Scene1(this, 6, 3);
 
@@ -81,6 +83,8 @@ public:
 
         scene5->setVisible(sceneIndex == 5);
         scene5_2->setVisible(sceneIndex == 52);
+        Scene5_game->setVisible(sceneIndex == 555);
+
         scene5_3->setVisible(sceneIndex == 53);
         scene5_4->setVisible(sceneIndex == 54);
         scene5_5->setVisible(sceneIndex == 55);

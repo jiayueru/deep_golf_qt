@@ -32,7 +32,9 @@ void MainWindow::setupScenes()
     connect(scene4->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(5); });
 
     connect(scene5->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(52); });
-    connect(scene5_2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(53); });
+    connect(scene5_2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(555); });
+    connect(Scene5_game,  &game2048::gameFinished, this, [this]() { switchToScene(53); });
+
     connect(scene5_3->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(54); });
     connect(scene5_4->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(55); });
     connect(scene5_5->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(6); });
@@ -40,7 +42,7 @@ void MainWindow::setupScenes()
 
     connect(scene6->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(62); });
     connect(scene6_2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(63); });
-    connect(scene6_3->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(7); });
+    connect(scene6_3->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(444   ); });
 
     connect(scene7->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(444); });
 

@@ -34,5 +34,6 @@
         <file>BG_new/BG10.png</file>
         <file>images/bg11.png</file>
         <file>images/black1.png</file>
+        <file>images/list_2.png</file>
     </qresource>
 </RCC>

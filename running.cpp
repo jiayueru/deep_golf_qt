@@ -224,12 +224,16 @@ void running::score(){
     connect(scoretimer, &QTimer::timeout,[=]{
         QString str = QString("YOUR SCORE:%1").arg(running::num);
         score->setText(str);
-        running::num += 1;
         if(num>30){
-            QString str = QString("WIN!!!");
-            score->setText(str);
-            this->releaseKeyboard();
-            emit gameFinished();
+            str = QString("WIN!!!");
+            QTimer::singleShot(2000, [this, score, str](){
+                score->setText(str);
+                this->releaseKeyboard();
+                emit gameFinished();
+            });
+        }
+        else{
+            running::num += 1;
         }
         score->show();
     });
