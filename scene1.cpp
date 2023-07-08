@@ -31,7 +31,6 @@ Scene1::~Scene1(){
 //    button = new QPushButton("Go to Scene 2", this);
 //    connect(button, &QPushButton::clicked, this, &Scene1::goToScene2);
 //}
-
 void Scene1::startscene(){
     /*根据id加载背景图片*/
     QLabel*scene = new QLabel();
@@ -74,35 +73,34 @@ void Scene1::startscene(){
         // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
         QPushButton *knockDoorButton = new QPushButton("B:无人值班的全家", this);
         // connect(knockDoorButton, &QPushButton::clicked, this, &YourClass::knockDoorButtonClicked);
-        QPushButton *seeButton = new QPushButton("C:观察读卡器", this);
         tryCardButton->move(210, 530);
-        knockDoorButton->move(350, 530);
-        seeButton->move(450, 530);
+        knockDoorButton->move(450, 530);
         // connect(seeButton, &QPushButton::clicked, this, &MainWindow::switchToScene);
     }
     else if(id==5 && caseid==4){
-        QPushButton *tryCardButton = new QPushButton("A:多一事不如少一事，直奔程设课堂", this);
+        QPushButton *tryCardButton = new QPushButton("A: 多一事不如少一事，直奔程设课堂", this);
         // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
-        QPushButton *knockDoorButton = new QPushButton("B:求帮助", this);
+        QPushButton *knockDoorButton = new QPushButton("B: 寻求帮助", this);
         tryCardButton->move(210, 530);
         knockDoorButton->move(450, 530);
         int sceneIndex = 4;
         // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
     }
     else if(id==6 && caseid==2){
-        QPushButton *tryCardButton = new QPushButton("A:保持沉默并报以礼貌的微笑", this);
+        QPushButton *tryCardButton = new QPushButton("A: 保持沉默并报以礼貌的微笑", this);
         // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
-        QPushButton *knockDoorButton = new QPushButton("B:“你说的对，但是不如原神。”", this);
-        tryCardButton->move(210, 430);
-        knockDoorButton->move(210, 480);
-        QPushButton *seeButton = new QPushButton("C:“我大一绩点3.92，但是还有提升的空间。”", this);
-        seeButton->move(210, 530);
+        QPushButton *knockDoorButton = new QPushButton("B: “你说的对，但是不如原神。”", this);
+        tryCardButton->move(240, 510);
+        knockDoorButton->move(240, 540);
+        QPushButton *seeButton = new QPushButton("C: “我大一绩点3.92，但是还有提升的空间。”", this);
+        seeButton->move(240, 570);
         int sceneIndex = 4;
         // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
     }
-    dialogWidget = new DialogWidget(this, id, caseid);   
+    dialogWidget = new DialogWidget(this, id, caseid);
     dialogWidget->show();
 }
+
 void Scene1::mousePressEvent(QMouseEvent *event){
     if (event->button() == Qt::LeftButton) {
         // 获取鼠标点击的位置

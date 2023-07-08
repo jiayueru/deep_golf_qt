@@ -28,18 +28,7 @@ void DialogWidget::paintEvent(QPaintEvent *event)
     QRect textRect(textX, textY, textWidth, textHeight);
     painter.drawText(textRect, Qt::AlignCenter, dialogTexts[currentDialogIndex]);
 }
-void DialogWidget::go_next(){
-    if (currentDialogIndex < dialogTexts.size()-1) {
-        // 切换下一句对话
-        currentDialogIndex++;
-        update(); // 更新绘制
-    }
-    else {
-        // 对话结束，清空对话内容
-        dialogTexts.clear();
-        emit dialogFinished();
-    }
-}
+
 
 //void DialogWidget::mousePressEvent(QMouseEvent *event)
 //{
@@ -65,19 +54,19 @@ void DialogWidget::go_next(){
 //}
 
 
-// void DialogWidget::go_next(){
-// //    qDebug() << "dialogTexts is empty:" << dialogTexts.isEmpty();
-//     if (this->currentDialogIndex < dialogTexts.size()-1) {
-//         // 切换下一句对话
-//         currentDialogIndex++;
-//         update(); // 更新绘制
-//     }
-//     else {
-//         // 对话结束，清空对话内容
-//         dialogTexts.clear();
-//         emit dialogFinished();
-//     }
-// }
+ void DialogWidget::go_next(){
+ //    qDebug() << "dialogTexts is empty:" << dialogTexts.isEmpty();
+     if (this->currentDialogIndex < dialogTexts.size()-1) {
+         // 切换下一句对话
+         currentDialogIndex++;
+         update(); // 更新绘制
+     }
+     else {
+         // 对话结束，清空对话内容
+         dialogTexts.clear();
+         emit dialogFinished();
+     }
+ }
 
 void DialogWidget::put_text(){
     /*场景1：宿舍*/
@@ -112,7 +101,6 @@ void DialogWidget::put_text(){
             dialogTexts << "你尝试用校园卡打开大门，读卡器却失灵了。";
             dialogTexts << "“但是在必要的时候，宿管会启动必要的措施，”";
             dialogTexts << "“此时您可能需要完成某项任务来打开宿舍的大门。”";
-            dialogTexts << "你尝试用校园卡打开大门，读卡器却失灵了。";
         }
         else if(caseid==2){
             dialogTexts << "脑海中回想起纸条上的话，你选择：";
@@ -126,36 +114,38 @@ void DialogWidget::put_text(){
             dialogTexts << "黑沉沉的夜色吞没了一切形状，";
             dialogTexts << "几盏路灯把万物照成细长的影子。";
             dialogTexts << "这不是你所熟悉的那个燕园。";
-            dialogTexts << "突然，地上一张似曾相识的昏黄纸片映入眼帘。你选择：";
         }
         else if(caseid==2){
-            dialogTexts << "纸条似乎是从哪里撕下来的，标号并不连贯。";
-            dialogTexts << "上面有许多你曾经听到过的名词，但在这里，它们似乎有了不同的含义。";
-            dialogTexts << "沉思间你已在车棚下待了太久，一团黑影冲破了宿舍的大门，";
-            dialogTexts << "你只能开始新的逃亡......";
+            dialogTexts << "突然，地上一张似曾相识的昏黄纸片映入眼帘。你选择：";
+            // dialogTexts << "纸条似乎是从哪里撕下来的，标号并不连贯。";
+            // dialogTexts << "上面有许多你曾经听到过的名词，但在这里，它们似乎有了不同的含义。";
+            // dialogTexts << "沉思间你已在车棚下待了太久，一团黑影冲破了宿舍的大门，";
+            // dialogTexts << "你只能开始新的逃亡......";
         }
     }
     /*餐车 behind*/
     else if(id==5){
         if(caseid==1){
             dialogTexts << "来到29楼附近，你忽然想起新生守则上的第3条：”";
+            dialogTexts << "“不吃早饭进入课堂是不被允许的”";
             dialogTexts << "你本对这条规定嗤之以鼻，可前面的奇遇却让你不得不收起轻视的念头。";
-            dialogTexts << "还是在这里买一份早饭吧。”";
+            dialogTexts << "“还是在这里买一份早饭吧。”,你想";
         }
         else if(caseid == 2){
-            dialogTexts << "你会选择：";
+            dialogTexts << "你会选择:";
         }
         else if(caseid == 3){
             dialogTexts << "全家是24小时营业的。你很庆幸自己记住了这点。";
-            dialogTexts << "无人值班并没有什么妨碍，自助售	货机已经能满足你的需求了。";
+            dialogTexts << "无人值班并没有什么妨碍，自助售货机已经能满足你的需求了。";
             dialogTexts << "一个饭团下肚，你的精神似乎振作了一点。";
         }
         else if(caseid==4){
-            dialogTexts << "走出全家，你发现一个身穿制服、骑着电瓶车的身影一闪而过，你选择：";
+            dialogTexts << "走出全家,你发现一个身穿制服、骑着电瓶车的身影一闪而过,你选择:";
         }
         else if(caseid==5){
-            dialogTexts << "“真正的保卫处人员是值得信赖的”，你现在理解了这句话。";
+            dialogTexts << "“真正的保卫处人员是值得信赖的”,你现在理解了这句话。";
             dialogTexts << "请寻找保卫处人员遗留的一张和之前相同材质的昏黄纸张，上面记载着如下文字:";
+            dialogTexts << "请点击图中的纸条！";
         }
     }
     /*behind*/
@@ -168,21 +158,26 @@ void DialogWidget::put_text(){
             dialogTexts << "余光中你只瞥见一个硕大无朋却发量稀疏的脑壳。你选择：";
         }
         else if(caseid==3){
-            dialogTexts << "他满意地离开了。你抹了抹额头的冷汗，继续奔赴程设课堂。";
+            dialogTexts << "你的话语似乎戳中了他的痛处，他手中的扇形电脑落在地上，发出巨响。";
+            dialogTexts << "响动吸引来了那团由ce、tle和wa组成的怪物，你只能继续踏上逃亡的旅途……";
         }
     }
     /*二教门口*/
     else if(id==7){
-        dialogTexts << "历经千辛万苦，你终于来到了二教的门前。";
-        dialogTexts << "现在，你距离心心念念的程设课堂可真是只有一步之遥了。";
-        dialogTexts << "往日敞开的大门此时加上了一把小锁，但这可难不倒机智的攻城狮。";
+        if(caseid==1){
+            dialogTexts << "历经千辛万苦，你终于来到了二教的门前。";
+            dialogTexts << "现在，你距离心心念念的程设课堂可真是只有一步之遥了。";
+            dialogTexts << "你飞快地冲上楼";
+        }
     }
     else if(id==8){
-        dialogTexts << "克服了千难万险，你终于来到了程设的课堂，赶上了今天的早十。";
-        dialogTexts << "忽然，你发现PPT似曾相识，老师讲的内容也是那么熟悉，";
-        dialogTexts << "一阵闹铃声传来，你这才发现自己躺在寝室的床上，";
-        dialogTexts << "一阵闹铃声传来，你这才发现自己躺在寝室的床上，";
-        dialogTexts << "刚才发生的一切，不过是太思念程设的课堂，在梦里来了一场与程设的双向奔赴。";
+        if(caseid==1){
+            dialogTexts << "你终于来到了程设的课堂，赶上了今天的早十。";
+            dialogTexts << "忽然，你发现PPT似曾相识，老师讲的内容也是那么熟悉，";
+            dialogTexts << "一阵闹铃声传来，你这才发现自己躺在寝室的床上，";
+            dialogTexts << "一阵闹铃声传来，你这才发现自己躺在寝室的床上，";
+            dialogTexts << "刚才发生的一切，不过是太思念程设的课堂，在梦里来了一场与程设的双向奔赴。";
+        }
     }
     else if(id==9){
         dialogTexts << "克服了千难万险，你终于来到了程设的课堂，赶上了今天的早十。";
