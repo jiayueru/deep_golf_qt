@@ -11,6 +11,10 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
+    scene1 = new Scene1(this, 1, 1,60,80,0);
+    scene1_2 = new Scene1(this, 1, 2);
+//    scene2 = new Scene1(this, 2, 1);
+//    scene3 = new Scene1(this, 3, 1);
     this->setFixedSize(800, 600);
     setupScenes();
 }
@@ -24,7 +28,7 @@ void MainWindow::setupScenes()
     /*可以根据scene实例化出不同的对象出来, 然后把所有的场景加入到堆叠窗口中去*/
     showScene(1);
     connect(scene1->dialogWidget, &DialogWidget::dialogFinished, this,  [this]() { switchToScene(12); });
-    connect(scene1_2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(2); });
+//    connect(scene1_2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(2); });
     // connect(scene2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(3); });
     // connect(scene3->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(32); });
     // connect(scene3_2->dialogWidget, &DialogWidget::dialogFinished, this, [this]() { switchToScene(4); });

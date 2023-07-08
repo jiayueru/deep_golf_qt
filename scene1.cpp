@@ -14,18 +14,17 @@ Scene1::Scene1(QWidget *parent, int id_, int caseid_,int paper_x,int paper_y,int
     paper=nullptr;
     closebutton=nullptr;
     openbutton=nullptr;
-    dialogWidget = new DialogWidget(this, id, caseid);
     // startscene();
 }
-Scene1::~Scene1(){
-    if(paper)
-        delete paper;
-    if(openbutton)
-        delete openbutton;
-    if(closebutton)
-        delete closebutton;
-    delete dialogWidget;
-}
+// Scene1::~Scene1(){
+//     if(paper)
+//         delete paper;
+//     if(openbutton)
+//         delete openbutton;
+//     if(closebutton)
+//         delete closebutton;
+//     delete dialogWidget;
+// }
 /*最后再加入进来*/
 //void other(){
 //    showlion();
@@ -102,7 +101,7 @@ void Scene1::startscene(){
         int sceneIndex = 4;
         // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
     }
-    
+    dialogWidget = new DialogWidget(this, id, caseid);   
     dialogWidget->show();
 }
 void Scene1::mousePressEvent(QMouseEvent *event){

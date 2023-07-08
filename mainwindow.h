@@ -28,10 +28,10 @@ public:
     ~MainWindow();
 
     int currentScene;
-    Scene1 *scene1 = new Scene1(this, 1, 1,60,80,0);
-    Scene1 *scene1_2 = new Scene1(this, 1, 2);
-    Scene1 *scene2 = new Scene1(this, 2, 1);
-    Scene1* scene3 = new Scene1(this, 3, 1);
+    Scene1 *scene1;
+    Scene1 *scene1_2;
+    // Scene1 *scene2;
+    // Scene1* scene3;
 //      Scene1* scene3_2 = new Scene1(this, 3, 2);
 //      // game2048* scene3_game = new game2048(this);
 
@@ -57,11 +57,11 @@ public slots:
     void switchToScene(int sceneIndex)
     {
         showScene(sceneIndex);
-    } 
+    }
     /*创建一个新的2048游戏*/
     void new_2048(){
         game2048* new_game = new game2048(this);
-        new_game->setVisible(true);   
+        new_game->setVisible(true);
     }
     void go_next();
     void goRunning();
@@ -73,7 +73,7 @@ public:
     {
         scene1->setVisible(sceneIndex == 1);
         scene1_2->setVisible(sceneIndex == 12);
-        scene2->setVisible(sceneIndex == 2);
+        // scene2->setVisible(sceneIndex == 2);
         switch (sceneIndex) {
             case 1:
                 scene1->startscene();

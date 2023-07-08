@@ -41,7 +41,6 @@ private:
     QPushButton *closebutton;
     QLabel*paper;
     int paperIdx;
-    ~Scene1();
 };
 
 #endif // SCENE1_H
