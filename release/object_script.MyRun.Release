@@ -1,0 +1,16 @@
+release/dialog.o
+release/game2048.o
+release/main.o
+release/mainwindow.o
+release/mywindow.o
+release/running.o
+release/scene1.o
+release/scene2.o
+release/qrc_images.o
+release/moc_dialog.o
+release/moc_game2048.o
+release/moc_mainwindow.o
+release/moc_mywindow.o
+release/moc_running.o
+release/moc_scene1.o
+release/moc_scene2.o

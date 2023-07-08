@@ -14,6 +14,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -54,6 +55,14 @@ public:
     QLabel *res_label;
     QPushButton *next_button;
     QLabel *win_label;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *block_std1;
+    QLabel *block_std2;
+    QLabel *block_std3;
+    QLabel *block_std4;
+    QLabel *block_std5;
+    QLabel *label_2;
 
     void setupUi(QWidget *game2048)
     {
@@ -63,7 +72,7 @@ public:
         game2048->setStyleSheet(QString::fromUtf8(""));
         gridWidget = new QWidget(game2048);
         gridWidget->setObjectName("gridWidget");
-        gridWidget->setGeometry(QRect(10, 100, 400, 400));
+        gridWidget->setGeometry(QRect(40, 100, 400, 400));
         gridWidget->setMaximumSize(QSize(16777211, 16777215));
         gridLayout = new QGridLayout(gridWidget);
         gridLayout->setObjectName("gridLayout");
@@ -399,7 +408,7 @@ public:
         res_label->setAlignment(Qt::AlignCenter);
         next_button = new QPushButton(game2048);
         next_button->setObjectName("next_button");
-        next_button->setGeometry(QRect(450, 420, 80, 18));
+        next_button->setGeometry(QRect(450, 410, 80, 18));
         win_label = new QLabel(game2048);
         win_label->setObjectName("win_label");
         win_label->setGeometry(QRect(450, 240, 64, 65));
@@ -410,6 +419,79 @@ public:
         win_label->setFrameShape(QFrame::NoFrame);
         win_label->setFrameShadow(QFrame::Raised);
         win_label->setAlignment(Qt::AlignCenter);
+        verticalLayoutWidget = new QWidget(game2048);
+        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
+        verticalLayoutWidget->setGeometry(QRect(650, 110, 81, 391));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        block_std1 = new QLabel(verticalLayoutWidget);
+        block_std1->setObjectName("block_std1");
+        block_std1->setMinimumSize(QSize(30, 30));
+        block_std1->setFont(font);
+        block_std1->setContextMenuPolicy(Qt::DefaultContextMenu);
+        block_std1->setStyleSheet(QString::fromUtf8("background-color: #EEC22D; color: #776E65; font-size: 48px;"));
+        block_std1->setFrameShape(QFrame::NoFrame);
+        block_std1->setFrameShadow(QFrame::Raised);
+        block_std1->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(block_std1);
+
+        block_std2 = new QLabel(verticalLayoutWidget);
+        block_std2->setObjectName("block_std2");
+        block_std2->setMinimumSize(QSize(30, 30));
+        block_std2->setFont(font);
+        block_std2->setContextMenuPolicy(Qt::DefaultContextMenu);
+        block_std2->setStyleSheet(QString::fromUtf8("background-color: #EEC22D; color: #776E65; font-size: 48px;"));
+        block_std2->setFrameShape(QFrame::NoFrame);
+        block_std2->setFrameShadow(QFrame::Raised);
+        block_std2->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(block_std2);
+
+        block_std3 = new QLabel(verticalLayoutWidget);
+        block_std3->setObjectName("block_std3");
+        block_std3->setMinimumSize(QSize(30, 30));
+        block_std3->setFont(font);
+        block_std3->setContextMenuPolicy(Qt::DefaultContextMenu);
+        block_std3->setStyleSheet(QString::fromUtf8("background-color: #EEC22D; color: #776E65; font-size: 48px;"));
+        block_std3->setFrameShape(QFrame::NoFrame);
+        block_std3->setFrameShadow(QFrame::Raised);
+        block_std3->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(block_std3);
+
+        block_std4 = new QLabel(verticalLayoutWidget);
+        block_std4->setObjectName("block_std4");
+        block_std4->setMinimumSize(QSize(30, 30));
+        block_std4->setFont(font);
+        block_std4->setContextMenuPolicy(Qt::DefaultContextMenu);
+        block_std4->setStyleSheet(QString::fromUtf8("background-color: #EEC22D; color: #776E65; font-size: 48px;"));
+        block_std4->setFrameShape(QFrame::NoFrame);
+        block_std4->setFrameShadow(QFrame::Raised);
+        block_std4->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(block_std4);
+
+        block_std5 = new QLabel(verticalLayoutWidget);
+        block_std5->setObjectName("block_std5");
+        block_std5->setMinimumSize(QSize(30, 30));
+        block_std5->setFont(font);
+        block_std5->setContextMenuPolicy(Qt::DefaultContextMenu);
+        block_std5->setStyleSheet(QString::fromUtf8("background-color: #EEC22D; color: #776E65; font-size: 48px;"));
+        block_std5->setFrameShape(QFrame::NoFrame);
+        block_std5->setFrameShadow(QFrame::Raised);
+        block_std5->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(block_std5);
+
+        label_2 = new QLabel(game2048);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(650, 40, 81, 61));
+        label_2->setStyleSheet(QString::fromUtf8("background: rgb(48, 32, 0); \n"
+"font: 12pt \"\345\215\216\346\226\207\347\220\245\347\217\200\";\n"
+"color:rgb(255, 255, 255)"));
+        label_2->setAlignment(Qt::AlignCenter);
         QWidget::setTabOrder(start_button, next_button);
 
         retranslateUi(game2048);
@@ -451,6 +533,12 @@ public:
         res_label->setText(QString());
         next_button->setText(QCoreApplication::translate("game2048", "\347\273\247\347\273\255", nullptr));
         win_label->setText(QCoreApplication::translate("game2048", "1", nullptr));
+        block_std1->setText(QCoreApplication::translate("game2048", "1", nullptr));
+        block_std2->setText(QCoreApplication::translate("game2048", "1", nullptr));
+        block_std3->setText(QCoreApplication::translate("game2048", "1", nullptr));
+        block_std4->setText(QCoreApplication::translate("game2048", "1", nullptr));
+        block_std5->setText(QCoreApplication::translate("game2048", "1", nullptr));
+        label_2->setText(QCoreApplication::translate("game2048", "\345\220\210\346\210\220\351\241\272\345\272\217", nullptr));
     } // retranslateUi
 
 };

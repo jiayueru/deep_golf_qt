@@ -36,6 +36,14 @@ game2048::game2048(QWidget *parent,int type)
         QString filename=":/front/material/"+QString::number(call_num)+"_"+QString::number(i+1)+".png";
         imgs[i]->load(filename);
     }
+    for(int i=1;i<=5;i++){
+        QString name="block_std"+QString::number(i);
+        QLabel* tmp=findChild<QLabel*>(name);
+        tmp->setPixmap(QPixmap::fromImage(*imgs[i-1]));
+        tmp->setScaledContents(true);
+        tmp->setMinimumSize(80,80);
+        tmp->setMaximumSize(80,80);
+    }
     ui->res_label->setVisible(false);
     ui->next_button->setVisible(false);
     score=0;
@@ -105,11 +113,12 @@ void game2048::flush(){
                     win_animation->setEndValue(QRect(QPoint(10, 100)
                                                    ,QSize(400,400)));
                     win_animation->start();
-                    emit gameFinished();
+
                     ui->res_label->setText("通过！请进入下一关");
                     ui->res_label->setVisible(true);
                     ui->next_button->setVisible(true);
                 }
+                //emit gameFinished();
             }
             else
                 boardblock[i*boardlen+j]->setPixmap(QPixmap(""));
@@ -310,4 +319,8 @@ bool game2048::judge(){
         has_res=true;
         return false;
     }
+}
+void game2048::on_next_button_clicked()
+{
+    emit gameFinished();
 }

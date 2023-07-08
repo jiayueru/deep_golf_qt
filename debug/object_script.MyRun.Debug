@@ -1,0 +1,16 @@
+debug/dialog.o
+debug/game2048.o
+debug/main.o
+debug/mainwindow.o
+debug/mywindow.o
+debug/running.o
+debug/scene1.o
+debug/scene2.o
+debug/qrc_images.o
+debug/moc_dialog.o
+debug/moc_game2048.o
+debug/moc_mainwindow.o
+debug/moc_mywindow.o
+debug/moc_running.o
+debug/moc_scene1.o
+debug/moc_scene2.o
