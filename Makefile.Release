@@ -165,7 +165,7 @@ release/qrc_images.cpp: images.qrc \
 		material/1_1.png \
 		material/2_1.png \
 		images/speak0.png \
-		images/lsit_0.png \
+		images/list_0.png \
 		images/bg11.png \
 		images/paper1.png \
 		images/speak1.png \

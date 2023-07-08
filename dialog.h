@@ -17,13 +17,14 @@ public:
     void put_text();
     QStringList dialogTexts;
     int currentDialogIndex;
+    void go_next();
 
 
 signals:
     void dialogFinished();
 protected:
     void paintEvent(QPaintEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
+    //void mousePressEvent(QMouseEvent *event) override;
 
 
 

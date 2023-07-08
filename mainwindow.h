@@ -28,14 +28,14 @@ public:
     ~MainWindow();
 
     int currentScene;
-    Scene1 *scene1 = new Scene1(this, 1, 1);
+    Scene1 *scene1 = new Scene1(this, 1, 1,60,80,0);
     Scene1 *scene1_2 = new Scene1(this, 1, 2);
     Scene1 *scene2 = new Scene1(this, 2, 1);
     Scene1* scene3 = new Scene1(this, 3, 1);
     Scene1* scene3_2 = new Scene1(this, 3, 2);
     game2048* scene3_game = new game2048(this);
     
-    Scene1* scene4 = new Scene1(this, 4, 1);
+    Scene1* scene4 = new Scene1(this, 4, 1,60,80,1);
     running * scene4_game = new running(this);
 
     Scene1* scene5 = new Scene1(this, 5, 1);
@@ -44,7 +44,7 @@ public:
     Scene1* scene5_4 = new Scene1(this, 5, 4);
     Scene1* scene5_5 = new Scene1(this, 5, 5);
 
-    Scene1* scene6 = new Scene1(this, 6, 1);
+    Scene1* scene6 = new Scene1(this, 6, 1,60,80,2);
     Scene1* scene6_2 = new Scene1(this, 6, 2);
     Scene1* scene6_3 = new Scene1(this, 6, 3);
 

@@ -10,7 +10,7 @@ DialogWidget::DialogWidget(QWidget *parent, int id_, int case_)
     currentDialogIndex = 0;
     label = new QLabel(this);
     // 设置鼠标跟踪
-    setMouseTracking(true);
+    //setMouseTracking(true);
 }
 
 void DialogWidget::paintEvent(QPaintEvent *event)
@@ -28,29 +28,41 @@ void DialogWidget::paintEvent(QPaintEvent *event)
     QRect textRect(textX, textY, textWidth, textHeight);
     painter.drawText(textRect, Qt::AlignCenter, dialogTexts[currentDialogIndex]);
 }
-
-void DialogWidget::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton)
-    {
-
-            if (currentDialogIndex < dialogTexts.size()-1) {
-                // 切换下一句对话
-                currentDialogIndex++;
-                update(); // 更新绘制
-            }
-            else {
-                // 对话结束，清空对话内容
-                dialogTexts.clear();
-                emit dialogFinished(); //发出对话结束的信号
-            }
-        event->accept();
+void DialogWidget::go_next(){
+    if (currentDialogIndex < dialogTexts.size()-1) {
+        // 切换下一句对话
+        currentDialogIndex++;
+        update(); // 更新绘制
     }
-    else
-    {
-        event->ignore();
+    else {
+        // 对话结束，清空对话内容
+        dialogTexts.clear();
+        emit dialogFinished();
     }
 }
+
+//void DialogWidget::mousePressEvent(QMouseEvent *event)
+//{
+//    if (event->button() == Qt::LeftButton)
+//    {
+
+//            if (currentDialogIndex < dialogTexts.size()-1) {
+//                // 切换下一句对话
+//                currentDialogIndex++;
+//                update(); // 更新绘制
+//            }
+//            else {
+//                // 对话结束，清空对话内容
+//                dialogTexts.clear();
+//                emit dialogFinished(); //发出对话结束的信号
+//            }
+//        event->accept();
+//    }
+//    else
+//    {
+//        event->ignore();
+//    }
+//}
 
 
 // void DialogWidget::go_next(){
