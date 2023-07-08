@@ -26,7 +26,7 @@ public:
     int isanimation;
     int win = 0;
     int num=0;
-    explicit running(QWidget *parent);
+    explicit running(QWidget *parent = nullptr);
     void start_game();
     void mainscene();
     void pixmapshowd();
@@ -36,7 +36,6 @@ public:
     void pixmapshowt();
     void djump(QLabel* jump);
     void ddown(QLabel* jump);
-private:
     void keyPressEvent(QKeyEvent * event);
     void score();
     ~running();

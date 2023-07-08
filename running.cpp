@@ -12,6 +12,7 @@ running::running(QWidget *parent) :
 {
     this->grabKeyboard();
     this->setGeometry(0, 0, 800, 600);
+    start_game();
 }
 
 running::~running()

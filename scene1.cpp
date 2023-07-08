@@ -14,7 +14,7 @@ Scene1::Scene1(QWidget *parent, int id_, int caseid_,int paper_x,int paper_y,int
     paper=nullptr;
     closebutton=nullptr;
     openbutton=nullptr;
-    // startscene();
+    startscene();
 }
 // Scene1::~Scene1(){
 //     if(paper)
