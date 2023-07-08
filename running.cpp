@@ -11,7 +11,7 @@ running::running(QWidget *parent) :
     QWidget(parent)
 {
     this->setGeometry(0, 0, 800, 600);
-    start_game();
+    // start_game();
 }
 
 running::~running()
@@ -20,9 +20,10 @@ running::~running()
 
 /*开始游戏*/
 void running::start_game(){
-    mainscene();
+    this-> grabKeyboard();
     pixmapshowd();
     pixmapshowg();
+    
     pixmapshowt();
     score();
 }
@@ -62,17 +63,17 @@ void running::pixmapshowd(){
 }
 
 void running::judge(QRect r1, QRect r2){//判断是否会遇到障碍物
-    if(r1.intersects(r2)){
-        win = 1;
-        timer1->stop();
-        timer2->stop();
-        timer3->stop();
-        timer4->stop();
-        timer5->stop();
-        timer6->stop();
-        timer7->stop();
-        scoretimer->stop();
-    }
+//    if(r1.intersects(r2)){
+//        win = 1;
+//        timer1->stop();
+//        timer2->stop();
+//        timer3->stop();
+//        timer4->stop();
+//        timer5->stop();
+//        timer6->stop();
+//        timer7->stop();
+//        scoretimer->stop();
+//    }
 }
 
 /*地面的展示*/
@@ -209,6 +210,7 @@ void running::keyPressEvent(QKeyEvent * event){
 
 /*分数计时器*/
 void running::score(){
+    mainscene();
     scoretimer=new QTimer();
     scoretimer->start(600);
     QLabel* score=new QLabel();
@@ -226,6 +228,7 @@ void running::score(){
         if(num>30){
             QString str = QString("WIN!!!");
             score->setText(str);
+            this->releaseKeyboard();
             emit gameFinished();
         }
         score->show();

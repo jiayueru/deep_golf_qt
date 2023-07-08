@@ -8,6 +8,7 @@ game2048::game2048(QWidget *parent,int type)
     : QWidget(parent)
     , ui(new Ui::game2048)
 {
+    this->grabKeyboard();
     ui->setupUi(this);
     resize(800,600);
     call_num=type;//1,2
@@ -39,7 +40,6 @@ game2048::game2048(QWidget *parent,int type)
     ui->next_button->setVisible(false);
     score=0;
     flush();
-    this->grabKeyboard();
 }
 
 game2048::~game2048()
@@ -51,6 +51,7 @@ game2048::~game2048()
         delete imgs[i];
     delete win_animation;
     delete ui;
+    this->releaseKeyboard();
     emit gameFinished();
 }
 

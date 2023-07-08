@@ -28,16 +28,62 @@ void Scene1::startscene(){
     scene->setParent(this);
     /*显示对话内容*/
     showlion();
-    dialogWidget = new DialogWidget(this, id, caseid);
-    dialogWidget->show();
     if(id==3 && caseid==2){
-        QPushButton *tryCardButton = new QPushButton("继续尝试校园卡", this);
+        QPushButton *tryCardButton = new QPushButton("A:继续尝试校园卡", this);
         // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
-        QPushButton *knockDoorButton = new QPushButton("敲击大门", this);
+        QPushButton *knockDoorButton = new QPushButton("B:敲击大门", this);
         // connect(knockDoorButton, &QPushButton::clicked, this, &YourClass::knockDoorButtonClicked);
-        tryCardButton->move(100, 100);
-        knockDoorButton->move(200, 200);
+        QPushButton *seeButton = new QPushButton("C:观察读卡器", this);
+        tryCardButton->move(210, 530);
+        knockDoorButton->move(350, 530);
+        seeButton->move(450, 530);
+        int sceneIndex = 4;
+        // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
     }
+    else if(id==4 && caseid==2){
+        QPushButton *tryCardButton = new QPushButton("A:回忆起“不要独自停留在本科生宿舍区的自行车棚下”的守则，迅速离开。", this);
+        // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
+        QPushButton *knockDoorButton = new QPushButton("B:或许这张纸片上蕴含着新的信息？", this);
+        // connect(knockDoorButton, &QPushButton::clicked, this, &YourClass::knockDoorButtonClicked);
+        tryCardButton->move(210, 520);
+        knockDoorButton->move(300, 550);
+        int sceneIndex = 4;
+        // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
+    }
+    /*5:餐车*/
+    else if(id==5 && caseid==2){
+        QPushButton *tryCardButton = new QPushButton("A:有身着工作服人员的餐车", this);
+        // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
+        QPushButton *knockDoorButton = new QPushButton("B:无人值班的全家", this);
+        // connect(knockDoorButton, &QPushButton::clicked, this, &YourClass::knockDoorButtonClicked);
+        QPushButton *seeButton = new QPushButton("C:观察读卡器", this);
+        tryCardButton->move(210, 530);
+        knockDoorButton->move(350, 530);
+        seeButton->move(450, 530);
+        // connect(seeButton, &QPushButton::clicked, this, &MainWindow::switchToScene);
+    }
+    else if(id==5 && caseid==4){
+        QPushButton *tryCardButton = new QPushButton("A:多一事不如少一事，直奔程设课堂", this);
+        // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
+        QPushButton *knockDoorButton = new QPushButton("B:求帮助", this);
+        tryCardButton->move(210, 530);
+        knockDoorButton->move(450, 530);
+        int sceneIndex = 4;
+        // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
+    }
+    else if(id==6 && caseid==2){
+        QPushButton *tryCardButton = new QPushButton("A:保持沉默并报以礼貌的微笑", this);
+        // connect(tryCardButton, &QPushButton::clicked, this, &YourClass::tryCardButtonClicked);
+        QPushButton *knockDoorButton = new QPushButton("B:“你说的对，但是不如原神。”", this);
+        tryCardButton->move(210, 430);
+        knockDoorButton->move(210, 480);
+        QPushButton *seeButton = new QPushButton("C:“我大一绩点3.92，但是还有提升的空间。”", this);
+        seeButton->move(210, 530);
+        int sceneIndex = 4;
+        // connect(seeButton, &QPushButton::clicked, this, [parent, 4]() {parent->switchToScene(4);});
+    }
+    dialogWidget = new DialogWidget(this, id, caseid);   
+    dialogWidget->show();
 }
 
 int i1 =0;
